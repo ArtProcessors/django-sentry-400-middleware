@@ -10,5 +10,11 @@ setup(
     author_email='operations@artprocessors.net',
     url='https://github.com/ArtProcessors/django-sentry-400-middleware',
     packages=find_packages(),
-    install_requires=['django', 'raven']
+    install_requires=['django', 'raven'],
+    extras_require={
+        'dev': [
+            'mock',
+            'pytest',
+        ]
+    }
 )
