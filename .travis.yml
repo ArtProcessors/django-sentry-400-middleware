@@ -1,15 +1,20 @@
 language: python
 python:
-  - "2.7"
-  - "3.5"
-  - "3.6"
+- '2.7'
+- '3.5'
+- '3.6'
 env:
-  - DJANGO_VERSION=1.8
-  - DJANGO_VERSION=1.9
-  - DJANGO_VERSION=1.10
-# command to install dependencies
-install: 
-  - pip install Django==$DJANGO_VERSION
-  - pip install -e .[dev]
-# command to run tests
+- DJANGO_VERSION=1.8
+- DJANGO_VERSION=1.9
+- DJANGO_VERSION=1.10
+install:
+- pip install Django==$DJANGO_VERSION
+- pip install -e .[dev]
 script: py.test
+deploy:
+  provider: pypi
+  user: jacob.haslehurst
+  on:
+    tags: true
+  password:
+    secure: uQAmntRiJHGVFmeaTyMeZr/ynNYBk45WujjPFqi+xVZ5IyNjzoKVsfCWS/OiG/CxEEDc2PE2KHRsCuoFBpN4Aqybit83aNg/clAZ1+KKHgvc18CXCxWds6gs9pGo2+9Ksvg2XPsMs6Ml28rwDya2MhisyELAtpfaFha5ExP/8snDt5LGWOVbI88jv9mPebCRmaOjegUHJMXlQk17eXYqP8a85eZPBqmU9Obtp2PSEJQQEeWnxlzv/SD5DsTaH6C7lQ2sI5XoPcNkVDX6MFEhzGe22ge5H/Qg1oc+jqBHppZMuG6fWutlvb5CXFaSKydu6W0qG6gqPAo5his6PKY40yKljtRfDYZIP6l4kbcGPZDeYyxQZz2KGyOLAiM/sSztAxTomIuwccoRlBIOcAitjY0KKQLvgITSD5k49zX8KUkce7S63zxk3rBF8Cpqkg1nJyRxCVsehlRvpGJ24JNncvADB0ujDAEpWjKqWI23qLnKV/xst5SmuTH2+IbqwQ630KiGaiYFEvC4RH09NxCiVh836N4C1h6K3fMjWZp9tpzwjzGhsQPqk5yZ/9mNXgb0huuqTc22mNvObpGNSxfpPWGaLFaoFcjYUOg+BwE1E/pAAJVArNLpnVLdv2+bD85FUrQKT3xa7LEdAG4B90FKhQ8HSjLqlkGPkeFLt/moVRY=
