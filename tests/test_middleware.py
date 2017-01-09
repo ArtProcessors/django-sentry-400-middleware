@@ -32,7 +32,7 @@ class MiddlewareTests(TestCase):
             resp = HttpResponse('OK', status=status_code)
             middleware = self.get_middleware_with_mock_client(resp)
 
-            middleware(req)
+            middleware.process_response(req, resp)
 
             assert middleware.client.captureMessage.called == expected_is_logged
 
@@ -49,6 +49,6 @@ class MiddlewareTests(TestCase):
                     r'^Rackspace Monitoring.*$',
                 )
 
-                middleware(req)
+                middleware.process_response(req, resp)
 
                 assert middleware.client.captureMessage.called == False
