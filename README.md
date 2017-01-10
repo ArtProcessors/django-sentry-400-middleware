@@ -1,4 +1,5 @@
 # Django Sentry 400 Middleware
+[![Build Status](https://travis-ci.org/ArtProcessors/django-sentry-400-middleware.svg?branch=master)](https://travis-ci.org/ArtProcessors/django-sentry-400-middleware)
 
 Django middleware to log 400 level errors to Sentry.
 
